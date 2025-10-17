@@ -1,0 +1,17 @@
+package com.phaser.server.socket;
+
+import lombok.NonNull;
+import org.springframework.stereotype.Component;
+import org.springframework.web.socket.TextMessage;
+import org.springframework.web.socket.WebSocketSession;
+import org.springframework.web.socket.handler.TextWebSocketHandler;
+import lombok.extern.slf4j.Slf4j;
+
+@Component
+@Slf4j
+public class WebSocketHandler extends TextWebSocketHandler {
+    @Override
+    protected void handleTextMessage(@NonNull WebSocketSession session, @NonNull TextMessage message) {
+        log.info(message.getPayload());
+    }
+}
